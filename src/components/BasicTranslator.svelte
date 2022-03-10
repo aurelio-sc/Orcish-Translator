@@ -8,6 +8,7 @@
     [ ] Checar se a palavra está no dicionário (JSON) e fazer a substituição.
     */
 
+
   let text='';
   let translatedText='';
   const punctuation=[".", ",", ";", ":", "!", "?"];
@@ -54,7 +55,7 @@
       let lastTwo = wordsModified[i].slice(-2);
       //console.log(lastTwo);
       if ( lastTwo == "'S") { //checks if the word starts and ends with 'S.
-        console.log(wordsModified[i] + " apóstrofe!");
+        //console.log(wordsModified[i] + " apóstrofe!");
         wordsModified[i]=wordsModified[i].substring(0, wordsModified[i].length - 2); //the word loses the 'S.
         wordsModified.splice(i+1, 0, lastTwo); //" or ' added to the array after the word.        
         i+=1;
@@ -63,7 +64,43 @@
 
     console.log(wordsModified);
 
+    const dictionary_url = 'https://api.jsonbin.io/b/622a023406182767437313db/2';
+    
+    async function getData(){
+      const response = await fetch(dictionary_url);
+      const dictionary_json = await response.json();
+      //console.log(dictionary_json);
+    
+      for (let i=0; i< wordsModified.length; i++) { //Translate to orcish
+        if (Object.keys(dictionary_json).includes(wordsModified[i])){
+          console.log(wordsModified[i] + " encontrada no dicionário!");
+          wordsModified[i]=dictionary_json[wordsModified[i]];
+        };
+      
+      };
+      console.log(wordsModified);
+      
+      for (let i=1; i<wordsModified.length-1; i++){
+        wordsModified[i] = wordsModified[i].toLowerCase();
+        if (punctuation.includes(wordsModified[i])){
+          wordsModified[i] = wordsModified[i];
+          wordsModified[i+1] = wordsModified[i+1].charAt(0).toUpperCase() + wordsModified[i+1].slice(1); 
+          console.log(wordsModified[i+1] + " vem após pontuação!")         
+        }else{
+          wordsModified[i] = " " + wordsModified[i];          
+        }
+      }
+
+      translatedText = wordsModified.join("");
+
+    };
+    getData();
+  
+
   };
+
+ 
+ 
 
 
 </script>
