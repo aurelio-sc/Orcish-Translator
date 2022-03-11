@@ -1,9 +1,9 @@
 # ToDo:
-[X] Look for punctuation;
-[X] Split the words;
-[X] Change words found in the dictionary.
-[X] Add spaces to the new sentence;
-[ ] Configure capitalization.
+[X] Look for punctuation; <br>
+[X] Split the words; <br>
+[X] Change words found in the dictionary. <br>
+[X] Add spaces to the new sentence; <br>
+[ ] Configure capitalization. <br>
 
 *Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
 
