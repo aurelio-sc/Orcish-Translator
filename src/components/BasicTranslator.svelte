@@ -80,7 +80,7 @@
       };
       console.log(wordsModified);
       
-      for (let i=1; i<wordsModified.length-1; i++){
+      for (let i=1; i<wordsModified.length-1; i++){ //PAROU DE FUNCIONAR!?
         wordsModified[i] = wordsModified[i].toLowerCase();
         if (punctuation.includes(wordsModified[i])){
           wordsModified[i] = wordsModified[i];
@@ -114,7 +114,7 @@
     cols="50"
     rows="10"/>
 
-  <button on:click={translate}>Translate</button>
+  <button on:click={translate} class="translate">T r a n s l a t e</button>
 
 </div>
 
@@ -126,8 +126,28 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: 2rem;
   }
   .textArea{
     resize: none;
+    border-radius: 0.75rem;
+    padding: 1rem;
   }
+
+  .translate {
+    height: 2rem;
+    background-color: #CECECE;
+    border:0.0125rem solid;
+    border-radius: 0.25rem;
+    font-weight: bold;
+  }
+
+  .translate:hover {
+    background-color: #BDBDBD;
+  }
+
+  .translate:active {
+    background-color: #ACACAC;
+  }
+
 </style>
