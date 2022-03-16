@@ -16,9 +16,11 @@
     justify-content: center;
     align-items: center;
     line-height: 1.6;
+    font-family: 'Roboto';
   }
 
   h1{
     font-size: 2rem;
+    font-weight: bold;
   }
 </style>

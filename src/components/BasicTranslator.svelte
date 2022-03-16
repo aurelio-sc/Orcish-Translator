@@ -80,7 +80,7 @@
       };
       console.log(wordsModified);
       
-      for (let i=1; i<wordsModified.length-1; i++){ //PAROU DE FUNCIONAR!?
+      for (let i=0; i<wordsModified.length-1; i++){ //PAROU DE FUNCIONAR!?
         wordsModified[i] = wordsModified[i].toLowerCase();
         if (punctuation.includes(wordsModified[i])){
           wordsModified[i] = wordsModified[i];
@@ -89,9 +89,10 @@
         }else{
           wordsModified[i] = " " + wordsModified[i];          
         }
+        translatedText = wordsModified.join("");
       }
 
-      translatedText = wordsModified.join("");
+      
 
     };
     getData();
@@ -106,7 +107,7 @@
 </script>
 <div class="container">
 
-  <p>{translatedText}</p>
+  <p class="translatedText">{translatedText}</p>
 
   <textarea 
     bind:value={text}
@@ -132,6 +133,8 @@
     resize: none;
     border-radius: 0.75rem;
     padding: 1rem;
+    font-family: 'Source Code Pro';
+    font-weight: bold;
   }
 
   .translate {
@@ -148,6 +151,11 @@
 
   .translate:active {
     background-color: #ACACAC;
+  }
+
+  .translatedText{
+    font-family: 'Rock Salt';
+    font-weight: bold;
   }
 
 </style>
